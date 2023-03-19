@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "All_Users",
+    "name": "UpdateQuery",
     "datasource": {
       "name": "devoutQ",
       "pluginId": "mongo-plugin",
@@ -13,7 +13,7 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Owners",
+    "pageId": "Orders",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -34,9 +34,9 @@
           "componentData": "users"
         },
         "command": {
-          "data": "FIND",
+          "data": "UPDATE",
           "viewType": "component",
-          "componentData": "FIND"
+          "componentData": "UPDATE"
         },
         "count": {
           "query": {
@@ -44,11 +44,11 @@
           }
         },
         "delete": {
-          "limit": {
-            "data": "SINGLE"
-          },
           "query": {
             "data": ""
+          },
+          "limit": {
+            "data": "SINGLE"
           }
         },
         "distinct": {
@@ -61,24 +61,16 @@
         },
         "find": {
           "query": {
-            "data": "{}",
-            "viewType": "component",
-            "componentData": "{ name: /{{data_table.searchText||\"\"}}/i }"
+            "data": ""
           },
           "limit": {
-            "data": "",
-            "viewType": "component",
-            "componentData": "{{data_table.pageSize}}"
+            "data": ""
           },
           "skip": {
-            "data": "",
-            "viewType": "component",
-            "componentData": "{{(data_table.pageNo - 1) * data_table.pageSize}}"
+            "data": ""
           },
           "sort": {
-            "data": "{ \n{{'name'}}: {{-1}} \n}",
-            "viewType": "component",
-            "componentData": "{ \n{{key_select.selectedOptionValue}}: {{order_select.selectedOptionValue}} \n}"
+            "data": ""
           },
           "projection": {
             "data": ""
@@ -91,52 +83,52 @@
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"find\": \"users\",\n  \"filter\": {},\n  \"sort\": { \n{{'name'}}: {{-1}} \n},\n  \"limit\": 10,\n  \"batchSize\": 10\n}\n",
+            "data": "{\n  \"update\": \"users\",\n  \"updates\": [{\n    \"q\": { _id: ObjectId('{{data_table.selectedRow._id}}') },\n    \"u\": {\n  $set:{{update_form.formData}}\n},\n    \"multi\": false\n}]\n}\n",
             "status": "SUCCESS"
           }
         },
         "smartSubstitution": {
-          "data": false,
+          "data": true,
           "viewType": "component",
-          "componentData": false
+          "componentData": true
         },
         "updateMany": {
-          "limit": {
-            "data": "SINGLE"
-          },
           "query": {
-            "data": ""
+            "data": "{ _id: ObjectId('{{data_table.selectedRow._id}}') }",
+            "viewType": "component",
+            "componentData": "{ _id: ObjectId('{{data_table.selectedRow._id}}') }"
+          },
+          "limit": {
+            "data": "SINGLE",
+            "viewType": "component",
+            "componentData": "SINGLE"
           },
           "update": {
-            "data": ""
+            "data": "{\n  $set:{{update_form.formData}}\n}",
+            "viewType": "component",
+            "componentData": "{\n  \"__v\" : {{update_col_1.text}},\n\t\"name\" : {{update_col_2.text}},\n  \"deviceid\" : {{update_col_3.text}},\n  \"email\" : {{update_col_4.text}}\n}"
           }
         }
       }
     },
-    "executeOnLoad": true,
-    "dynamicBindingPathList": [
-      {
-        "key": "formData.find.sort.data"
-      }
-    ],
+    "executeOnLoad": false,
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "'name'",
-      "(data_table.pageNo - 1) * data_table.pageSize",
-      "-1",
-      "data_table.pageSize",
-      "data_table.searchText||\"\"",
-      "key_select.selectedOptionValue",
-      "order_select.selectedOptionValue"
+      "data_table.selectedRow._id",
+      "update_col_1.text",
+      "update_col_2.text",
+      "update_col_3.text",
+      "update_col_4.text",
+      "update_form.formData"
     ],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Owners_All_Users",
+  "id": "Orders_UpdateQuery",
   "deleted": false,
-  "gitSyncId": "641597f51d9c1f2f557b4de1_6415f04cec20775f76c4cd04"
+  "gitSyncId": "641597f51d9c1f2f557b4de1_6416adb0ec20775f76c4d250"
 }

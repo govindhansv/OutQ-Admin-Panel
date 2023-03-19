@@ -34,9 +34,9 @@
               "onSubmit": "{{UpdateQuery.run(\n\t() => AllUsers.run(), \n\t(error) => showAlert(`Error while updating resource!\\n${error}`,'error'))}}",
               "topRow": 0,
               "type": "JSON_FORM_WIDGET",
-              "topRowBeforeCollapse": 86,
+              "topRowBeforeCollapse": 0,
               "animateLoading": true,
-              "leftColumn": 24,
+              "leftColumn": 45,
               "dynamicBindingPathList": [
                 {
                   "key": "schema.__root_schema__.defaultValue"
@@ -163,12 +163,30 @@
                 },
                 {
                   "key": "schema.__root_schema__.children.longitude.accentColor"
+                },
+                {
+                  "key": "schema.__root_schema__.children.savedstores.defaultValue"
+                },
+                {
+                  "key": "schema.__root_schema__.children.savedstores.borderRadius"
+                },
+                {
+                  "key": "schema.__root_schema__.children.savedstores.accentColor"
+                },
+                {
+                  "key": "schema.__root_schema__.children.cpswd.defaultValue"
+                },
+                {
+                  "key": "schema.__root_schema__.children.cpswd.borderRadius"
+                },
+                {
+                  "key": "schema.__root_schema__.children.cpswd.accentColor"
                 }
               ],
               "showReset": true,
               "dynamicHeight": "FIXED",
               "autoGenerateForm": true,
-              "bottomRowBeforeCollapse": 180,
+              "bottomRowBeforeCollapse": 86,
               "resetButtonStyles": {
                 "boxShadow": "none",
                 "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
@@ -258,7 +276,7 @@
               },
               "disabledWhenInvalid": true,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "originalBottomRow": 180,
+              "originalBottomRow": 86,
               "schema": {
                 "__root_schema__": {
                   "labelTextSize": "0.875rem",
@@ -365,10 +383,10 @@
                     },
                     "__v": {
                       "children": {},
-                      "dataType": "number",
+                      "dataType": "string",
                       "defaultValue": "{{((sourceData, formData, fieldState) => (sourceData.__v))(update_form.sourceData, update_form.formData, update_form.fieldState)}}",
-                      "fieldType": "Number Input",
-                      "sourceData": 0,
+                      "fieldType": "Text Input",
+                      "sourceData": "",
                       "isCustomField": false,
                       "accessor": "__v",
                       "identifier": "__v",
@@ -494,6 +512,50 @@
                       "isVisible": true,
                       "labelTextSize": "0.875rem",
                       "label": "Longitude"
+                    },
+                    "savedstores": {
+                      "children": {},
+                      "dataType": "string",
+                      "defaultValue": "{{((sourceData, formData, fieldState) => (sourceData.savedstores))(update_form.sourceData, update_form.formData, update_form.fieldState)}}",
+                      "fieldType": "Text Input",
+                      "sourceData": "",
+                      "isCustomField": false,
+                      "accessor": "savedstores",
+                      "identifier": "savedstores",
+                      "position": 10,
+                      "originalIdentifier": "savedstores",
+                      "boxShadow": "none",
+                      "borderRadius": "{{((sourceData, formData, fieldState) => (appsmith.theme.borderRadius.appBorderRadius))(update_form.sourceData, update_form.formData, update_form.fieldState)}}",
+                      "accentColor": "{{((sourceData, formData, fieldState) => (appsmith.theme.colors.primaryColor))(update_form.sourceData, update_form.formData, update_form.fieldState)}}",
+                      "iconAlign": "left",
+                      "isDisabled": false,
+                      "isRequired": false,
+                      "isSpellCheck": false,
+                      "isVisible": true,
+                      "labelTextSize": "0.875rem",
+                      "label": "Savedstores"
+                    },
+                    "cpswd": {
+                      "children": {},
+                      "dataType": "string",
+                      "defaultValue": "{{((sourceData, formData, fieldState) => (sourceData.cpswd))(update_form.sourceData, update_form.formData, update_form.fieldState)}}",
+                      "fieldType": "Text Input",
+                      "sourceData": "",
+                      "isCustomField": false,
+                      "accessor": "cpswd",
+                      "identifier": "cpswd",
+                      "position": 11,
+                      "originalIdentifier": "cpswd",
+                      "boxShadow": "none",
+                      "borderRadius": "{{((sourceData, formData, fieldState) => (appsmith.theme.borderRadius.appBorderRadius))(update_form.sourceData, update_form.formData, update_form.fieldState)}}",
+                      "accentColor": "{{((sourceData, formData, fieldState) => (appsmith.theme.colors.primaryColor))(update_form.sourceData, update_form.formData, update_form.fieldState)}}",
+                      "iconAlign": "left",
+                      "isDisabled": false,
+                      "isRequired": false,
+                      "isSpellCheck": false,
+                      "isVisible": true,
+                      "labelTextSize": "0.875rem",
+                      "label": "Cpswd"
                     }
                   },
                   "position": -1,
@@ -556,7 +618,7 @@
               "renderMode": "CANVAS",
               "scrollContents": true,
               "fixedFooter": true,
-              "originalTopRow": 86,
+              "originalTopRow": 0,
               "maxDynamicHeight": 9000,
               "minDynamicHeight": 4
             },
@@ -570,7 +632,7 @@
                 }
               ],
               "topRow": 0,
-              "bottomRow": 86,
+              "bottomRow": 85,
               "parentRowSpace": 10,
               "type": "CONTAINER_WIDGET",
               "parentColumnSpace": 19.75,
@@ -591,7 +653,7 @@
                   "widgetId": "59rw5mx0bq",
                   "containerStyle": "none",
                   "topRow": 0,
-                  "bottomRow": 860,
+                  "bottomRow": 850,
                   "parentRowSpace": 1,
                   "isVisible": "true",
                   "canExtend": false,
@@ -611,18 +673,18 @@
                       "widgetName": "user_table",
                       "onSort": "{{AllUsers.run()}}",
                       "columnOrder": [
+                        "name",
+                        "phone",
+                        "email",
+                        "cpswd",
+                        "location",
                         "pincode",
                         "pswd",
-                        "phone",
                         "latitude",
                         "__v",
-                        "name",
-                        "location",
-                        "_id",
                         "deviceid",
-                        "email",
+                        "_id",
                         "longitude",
-                        "cpswd",
                         "savedstores",
                         "customColumn1"
                       ],
@@ -752,7 +814,7 @@
                           "textSize": "0.875rem",
                           "enableFilter": true,
                           "enableSort": true,
-                          "isVisible": true,
+                          "isVisible": false,
                           "isDisabled": false,
                           "isCellVisible": true,
                           "isDerived": false,
@@ -771,7 +833,7 @@
                           "textSize": "0.875rem",
                           "enableFilter": true,
                           "enableSort": true,
-                          "isVisible": true,
+                          "isVisible": false,
                           "isDisabled": false,
                           "isCellVisible": true,
                           "isDerived": false,
@@ -813,7 +875,7 @@
                           "textSize": "0.875rem",
                           "enableFilter": true,
                           "enableSort": true,
-                          "isVisible": true,
+                          "isVisible": false,
                           "isDisabled": false,
                           "isCellVisible": true,
                           "isDerived": false,
@@ -832,7 +894,7 @@
                           "textSize": "0.875rem",
                           "enableFilter": true,
                           "enableSort": true,
-                          "isVisible": true,
+                          "isVisible": false,
                           "isDisabled": false,
                           "isCellVisible": true,
                           "isDerived": false,
@@ -847,7 +909,7 @@
                           "computedValue": "{{data_table.sanitizedTableData.map((currentRow) => ( currentRow._id))}}",
                           "textSize": "0.875rem",
                           "index": 1,
-                          "isVisible": true,
+                          "isVisible": false,
                           "label": "_id",
                           "columnType": "text",
                           "horizontalAlignment": "LEFT",
@@ -907,7 +969,7 @@
                           "textSize": "0.875rem",
                           "enableFilter": true,
                           "enableSort": true,
-                          "isVisible": true,
+                          "isVisible": false,
                           "isDisabled": false,
                           "isCellVisible": true,
                           "isDerived": false,
@@ -983,7 +1045,7 @@
                           "textSize": "0.875rem",
                           "enableFilter": true,
                           "enableSort": true,
-                          "isVisible": true,
+                          "isVisible": false,
                           "isDisabled": false,
                           "isCellVisible": true,
                           "isDerived": false,
@@ -1176,7 +1238,7 @@
               "borderWidth": "0",
               "labelTextSize": "0.875rem",
               "backgroundColor": "#FFFFFF",
-              "rightColumn": 24,
+              "rightColumn": 45,
               "dynamicHeight": "FIXED",
               "widgetId": "mvubsemxfo",
               "containerStyle": "card",

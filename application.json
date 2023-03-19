@@ -11,6 +11,22 @@
     {
       "id": "Stores",
       "isDefault": false
+    },
+    {
+      "id": "Services",
+      "isDefault": false
+    },
+    {
+      "id": "Orders",
+      "isDefault": false
+    },
+    {
+      "id": "Bookings",
+      "isDefault": false
+    },
+    {
+      "id": "Reviews",
+      "isDefault": false
     }
   ],
   "viewMode": false,
@@ -28,6 +44,11 @@
   "publishedCustomJSLibs": [],
   "evaluationVersion": 2,
   "applicationVersion": 2,
+  "embedSetting": {
+    "height": "720px",
+    "width": "1024px",
+    "showNavigationBar": true
+  },
   "collapseInvisibleWidgets": true,
   "isManualUpdate": false,
   "deleted": false
